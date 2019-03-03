@@ -13,8 +13,7 @@ class ViewController: UITableViewController {
     //MARK: - Variables
     
     var pictures = [String]()
-    
-    
+
     //MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +33,11 @@ class ViewController: UITableViewController {
         }
         
         print(pictures)
+        
+        //Sort the array of pictures
+        pictures.sort()
+        
+        print(pictures)
     }
     
     //MARK: - TableView Setup
@@ -43,7 +47,8 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = pictures[indexPath.row]
+        //Use the sorted array from viewDidLoad() to populate the tableview cells
+        cell.textLabel?.text = "Picture \(indexPath.row + 1) of \(pictures.count)"
         return cell
     }
     
