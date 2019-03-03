@@ -58,6 +58,8 @@ class ViewController: UITableViewController {
         // if any of the items fail the code within the braces WILL NOT exectue
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.selectedImage = pictures[indexPath.row]
+            vc.totalPictureCount = pictures.count
+            vc.selectedPictureNumber = indexPath.row + 1
             navigationController?.pushViewController(vc, animated: true)
         }
     }

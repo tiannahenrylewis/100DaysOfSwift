@@ -15,13 +15,15 @@ class DetailViewController: UIViewController {
     
     //MARK: - Variables
     var selectedImage: String?
+    var totalPictureCount: Int?
+    var selectedPictureNumber: Int?
     
     //MARK: - View Controller Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Navigation Bar Customizations
-        title = selectedImage
+        title = "Picture \(selectedPictureNumber!) of \(totalPictureCount!)"
         navigationItem.largeTitleDisplayMode = .never
 
         //selectedImage cannot be used directly as it is an optional, Swift will not let us without
