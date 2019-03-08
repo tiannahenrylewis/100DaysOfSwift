@@ -10,7 +10,10 @@ A simple game where a user is shown 3 randomly selected images of flags from a s
 
 Key Topics: Asset Catalog, UIButton, CALayer, Array Shuffling, Random Number Generation, @IBAction, UIAlertController, Tags, 
 
-## Project 3: Social Media
+## Project 3: Social Media :white_check_mark:  
+This project was more a modification to an exisitng project (ie. StormViewer), where the functionality to share and save the image was made available through the use of UIActivityViewController.
+
+Key Topics: UIBarButtonItem, UIActivityViewController, #selector, @objc, 
 
 ## Project 4: Easy Browser  
 
