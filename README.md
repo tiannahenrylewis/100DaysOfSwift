@@ -18,7 +18,7 @@ Key Topics: UIBarButtonItem, UIActivityViewController, #selector, @objc,
 ## Project 4: Easy Browser [In Progress]  
 The goal of this project was to create a simple web browswer using WebKit. A UIAlert was included which allows a user to select from a number of different pre-loaded web sites.
 
-Key Topics: WKWebView, Action Sheets, Delegates, URLs
+Key Topics: WKWebView, Action Sheets, Delegates, URLs, UIProgressView, Key-Value Observing, UIToolbar
 ## Project 5: Word Scramble 
 
 ## Project 6: Auto Layout  
