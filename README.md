@@ -15,8 +15,10 @@ This project was more a modification to an exisitng project (ie. StormViewer), w
 
 Key Topics: UIBarButtonItem, UIActivityViewController, #selector, @objc, 
 
-## Project 4: Easy Browser  
+## Project 4: Easy Browser [In Progress]  
+The goal of this project was to create a simple web browswer using WebKit. A UIAlert was included which allows a user to select from a number of different pre-loaded web sites.
 
+Key Topics: WKWebView, Action Sheets, Delegates, URLs
 ## Project 5: Word Scramble 
 
 ## Project 6: Auto Layout  
