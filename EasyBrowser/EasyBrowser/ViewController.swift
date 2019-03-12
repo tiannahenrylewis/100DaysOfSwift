@@ -14,7 +14,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     //MARK: - Variables
     var webview: WKWebView!
     var progressView: UIProgressView!
-    var websites = ["laliga.es", "nhl.com", "nba.com"]
+    var websites = ["hackingwithswift.com", "raywenderlich.com", "apple.com", "tiannahenrylewis.com"]
     
     override func loadView() {
         webview = WKWebView()
@@ -30,12 +30,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         progressView = UIProgressView(progressViewStyle: .default)
         progressView.sizeToFit()
+        
         let progressButton = UIBarButtonItem(customView: progressView)
         
-        let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webview, action: #selector(WKWebView.reload))
         
-        toolbarItems = [progressButton, spacer, refresh]
+        let back = UIBarButtonItem(title: "Back", style: .plain, target: webview, action: #selector(webview.goBack))
+        
+        let forward = UIBarButtonItem(title: "Forward", style: .plain, target: webview, action: #selector(webview.goForward))
+        
+        toolbarItems = [progressButton, spacer, refresh, spacer, back, spacer, forward]
         navigationController?.isToolbarHidden = false
         
         webview.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
@@ -85,6 +91,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         let url = navigationAction.request.url
         
+        let ac = UIAlertController(title: "Access Denied", message: "You are attempting to access a url that has been blocked.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Ok", style: .cancel))
+        
             if let host = url?.host {
                 for website in websites {
                     if host.contains(website) {
@@ -93,11 +102,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
                     }
                 }
             }
+    
+        present(ac, animated: true)
         
         decisionHandler(.cancel)
+        
     }
     
     
     
 }
-
