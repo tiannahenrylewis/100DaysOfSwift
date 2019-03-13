@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91F6B2C022376E84008CF807 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F6B2BF22376E84008CF807 /* MenuTableViewController.swift */; };
 		91FF712322340F3500EE470B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FF712222340F3500EE470B /* AppDelegate.swift */; };
 		91FF712522340F3500EE470B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FF712422340F3500EE470B /* ViewController.swift */; };
 		91FF712822340F3500EE470B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FF712622340F3500EE470B /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91F6B2BF22376E84008CF807 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		91FF711F22340F3500EE470B /* EasyBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91FF712222340F3500EE470B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91FF712422340F3500EE470B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				91FF712222340F3500EE470B /* AppDelegate.swift */,
+				91F6B2BF22376E84008CF807 /* MenuTableViewController.swift */,
 				91FF712422340F3500EE470B /* ViewController.swift */,
 				91FF712622340F3500EE470B /* Main.storyboard */,
 				91FF712922340F3600EE470B /* Assets.xcassets */,
@@ -137,6 +140,7 @@
 			files = (
 				91FF712522340F3500EE470B /* ViewController.swift in Sources */,
 				91FF712322340F3500EE470B /* AppDelegate.swift in Sources */,
+				91F6B2C022376E84008CF807 /* MenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

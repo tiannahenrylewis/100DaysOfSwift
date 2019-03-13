@@ -14,7 +14,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
     //MARK: - Variables
     var webview: WKWebView!
     var progressView: UIProgressView!
-    var websites = ["hackingwithswift.com", "raywenderlich.com", "apple.com", "tiannahenrylewis.com"]
+    var websiteList = [""]
+    var selectedWebsite: String = ""
     
     override func loadView() {
         webview = WKWebView()
@@ -32,13 +33,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
         progressView.sizeToFit()
         
         let progressButton = UIBarButtonItem(customView: progressView)
-        
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webview, action: #selector(WKWebView.reload))
-        
         let back = UIBarButtonItem(title: "Back", style: .plain, target: webview, action: #selector(webview.goBack))
-        
         let forward = UIBarButtonItem(title: "Forward", style: .plain, target: webview, action: #selector(webview.goForward))
         
         toolbarItems = [progressButton, spacer, refresh, spacer, back, spacer, forward]
@@ -46,10 +43,11 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         webview.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
         
-        let url = URL(string: "https://" + websites[0])!
+        let url = URL(string: "https://" + selectedWebsite)!
         webview.load(URLRequest(url: url))
         webview.allowsBackForwardNavigationGestures = true
         
+
     }
     
     @objc func openTapped() {
@@ -57,7 +55,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         let ac = UIAlertController(title: "Open Page", message: nil, preferredStyle: .actionSheet)
         
         //Alert Controller Actions - web pages user can visit
-        for website in websites {
+        for website in websiteList {
             ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
         }
         
@@ -83,31 +81,36 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
-            progressView.progress = Float(webview.estimatedProgress)
+            progressView.progress = Float(webview.estimatedProgress) 
         }
     }
     
+
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        
-        let url = navigationAction.request.url
         
         let ac = UIAlertController(title: "Access Denied", message: "You are attempting to access a url that has been blocked.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Ok", style: .cancel))
         
-            if let host = url?.host {
-                for website in websites {
-                    if host.contains(website) {
-                        decisionHandler(.allow)
-                        return
-                    }
+        let url = navigationAction.request.url
+        
+        if let host = url!.host {
+            print("Stepping In")
+            print("Host: \(host)")
+            for website in websiteList {
+                if host.contains(website) {
+                    print("url allowed: \(host)")
+                    decisionHandler(.allow)
+                    return
                 }
             }
-    
+        }
+
         present(ac, animated: true)
         
         decisionHandler(.cancel)
         
     }
+    
     
     
     
