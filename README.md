@@ -13,13 +13,14 @@ Key Topics: Asset Catalog, UIButton, CALayer, Array Shuffling, Random Number Gen
 ## Project 3: Social Media :white_check_mark:  
 This project was more a modification to an exisitng project (ie. StormViewer), where the functionality to share and save the image was made available through the use of UIActivityViewController.
 
-Key Topics: UIBarButtonItem, UIActivityViewController, #selector, @objc, 
+Key Topics: UIBarButtonItem, UIActivityViewController, #selector, @objc
 
-## Project 4: Easy Browser [In Progress]  
+## Project 4: Easy Browser  :white_check_mark:  
 The goal of this project was to create a simple web browswer using WebKit. A UIAlert was included which allows a user to select from a number of different pre-loaded web sites.
 
-Key Topics: WKWebView, Action Sheets, Delegates, URLs, UIProgressView, Key-Value Observing, UIToolbar
-## Project 5: Word Scramble 
+Key Topics: WKWebView, Action Sheets, Delegates, URLs, UIProgressView, Key-Value Observing, UIToolbar  
+
+## Project 5: Word Scramble [In Progress] 
 
 ## Project 6: Auto Layout  
 
