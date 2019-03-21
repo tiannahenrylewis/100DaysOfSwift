@@ -20,8 +20,18 @@ The goal of this project was to create a simple web browswer using WebKit. A UIA
 
 Key Topics: WKWebView, Action Sheets, Delegates, URLs, UIProgressView, Key-Value Observing, UIToolbar  
 
-## Project 5: Word Scramble [In Progress] 
+## Project 5: Word Scramble :white_check_mark:  
+Simple anagram word game, users are presented a word and using only the letters in that word must come up with as many words as they can. They can clear the board and start a new game with a new word at any time.
 
-## Project 6: Auto Layout  
+Key Topics:  
 
-## Project 7: ???  
+## Project 6: Auto Layout :white_check_mark:  
+
+
+## Project 7: Shopping List :white_check_mark:  
+Milestone project where users can add items to their shopping list, users can clear the list at any time to start over.
+
+Key Topics:  
+
+## Project 8: Petitions :white_check_mark:  
+
