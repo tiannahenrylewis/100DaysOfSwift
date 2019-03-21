@@ -33,5 +33,9 @@ Milestone project where users can add items to their shopping list, users can cl
 
 Key Topics:  
 
-## Project 8: Petitions :white_check_mark:  
+## Project 8: Petitions [In Progress]  
+
+Key Topics:  
+
+
 
