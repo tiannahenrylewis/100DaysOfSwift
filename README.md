@@ -23,10 +23,12 @@ Key Topics: WKWebView, Action Sheets, Delegates, URLs, UIProgressView, Key-Value
 ## Project 5: Word Scramble :white_check_mark:  
 Simple anagram word game, users are presented a word and using only the letters in that word must come up with as many words as they can. They can clear the board and start a new game with a new word at any time.
 
-Key Topics:  
+Key Topics: Capture Lists, TableView, Alerts (with Text Fields), Reading From Disk (contentsOf), NSRange
 
 ## Project 6: Auto Layout :white_check_mark:  
+Simple sample app to work with the concepts surrounding Auto Layout. Functionality wise this app is simply 5 labels placed programatically with their constraints handled in the same manner.  
 
+Key Topics: Advanced Auto Layout, Visual Formatting Language, Auto Layout Anchors
 
 ## Project 7: Shopping List :white_check_mark:  
 Milestone project where users can add items to their shopping list, users can clear the list at any time to start over.
