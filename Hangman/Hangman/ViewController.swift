@@ -56,11 +56,12 @@ class ViewController: UIViewController {
 
         let resetButton = UIButton(type: .system)
         resetButton.translatesAutoresizingMaskIntoConstraints = false
-        resetButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        resetButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         resetButton.setTitle("RESET", for: .normal)
         resetButton.setTitleColor(.white, for: .normal)
         resetButton.backgroundColor = UIColor.orange
-        resetButton.layer.cornerRadius = 24
+        resetButton.layer.cornerRadius = 23
+        resetButton.addTarget(self, action: #selector(resetTapped), for: .touchUpInside)
         view.addSubview(resetButton)
 
         imageView.image = UIImage(named: "hangman0.png")
@@ -111,8 +112,8 @@ class ViewController: UIViewController {
             buttonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -25),
             //RESET BUTTON
-            resetButton.widthAnchor.constraint(equalToConstant: 105),
-            resetButton.heightAnchor.constraint(equalToConstant: 50),
+            resetButton.widthAnchor.constraint(equalToConstant: 100),
+            resetButton.heightAnchor.constraint(equalToConstant: 45),
             resetButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -40),
             resetButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             ])
@@ -190,7 +191,7 @@ class ViewController: UIViewController {
         for letter in word {
             let strLetter = String(letter)
             usedLetters += [strLetter]
-            wordToGuess += "?"
+            wordToGuess += " _ "
         }
 
         wordLabel.text = wordToGuess
@@ -218,7 +219,7 @@ class ViewController: UIViewController {
             if guessedLetters.contains(strLetter) {
                 wordToGuess += strLetter
             } else {
-                wordToGuess += "?"
+                wordToGuess += " _ "
             }
         }
 
@@ -238,7 +239,11 @@ class ViewController: UIViewController {
     }
     
     @objc func resetTapped(_ sender: UIButton) {
-
+        resetButtons()
+        livesRemaining = 7
+        currentScore = 0
+        puzzleCount = 0
+        loadLevel()
     }
 
     func checkGame() {
