@@ -13,6 +13,7 @@
 		918A4A642281272100785B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 918A4A632281272100785B0B /* Assets.xcassets */; };
 		918A4A672281272100785B0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918A4A652281272100785B0B /* LaunchScreen.storyboard */; };
 		918A4A6F2281289A00785B0B /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A4A6E2281289A00785B0B /* PersonCell.swift */; };
+		918A4A712282816C00785B0B /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A4A702282816C00785B0B /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		918A4A662281272100785B0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		918A4A682281272100785B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		918A4A6E2281289A00785B0B /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		918A4A702282816C00785B0B /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +60,12 @@
 			children = (
 				918A4A5C2281271E00785B0B /* AppDelegate.swift */,
 				918A4A5E2281271E00785B0B /* ViewController.swift */,
+				918A4A6E2281289A00785B0B /* PersonCell.swift */,
+				918A4A702282816C00785B0B /* Person.swift */,
 				918A4A602281271E00785B0B /* Main.storyboard */,
 				918A4A632281272100785B0B /* Assets.xcassets */,
 				918A4A652281272100785B0B /* LaunchScreen.storyboard */,
 				918A4A682281272100785B0B /* Info.plist */,
-				918A4A6E2281289A00785B0B /* PersonCell.swift */,
 			);
 			path = NameToFaces;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				918A4A6F2281289A00785B0B /* PersonCell.swift in Sources */,
 				918A4A5F2281271E00785B0B /* ViewController.swift in Sources */,
+				918A4A712282816C00785B0B /* Person.swift in Sources */,
 				918A4A5D2281271E00785B0B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
