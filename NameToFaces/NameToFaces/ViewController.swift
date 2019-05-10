@@ -87,22 +87,66 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         let person = people[indexPath.item]
+        print(person)
 
-        let ac = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Rename or Delete?", message: "Would you like to rename or delete the person you selected.", preferredStyle: .alert)
 
-        ac.addTextField()
+        // Create "Delete" button and present to user, perform action if user selects
+        ac.addAction(UIAlertAction(title: "Delete", style: .destructive) { [weak self, weak ac] _ in
+            let deleteAlert = UIAlertController(title: "Delete", message: "Confirm you would like to delete the selected person.", preferredStyle: .alert)
+            //Confirm No - Cancel action
+            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .default) { [weak self, weak deleteAlert] _ in
+                return
+            })
+            //Confirm Yes - proceed with delete action
+            deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive) { [weak self, weak deleteAlert] _ in
+                self!.people.remove(at: Int(indexPath.item))
+                self?.collectionView.reloadData()
+            })
 
-        ac.addAction(UIAlertAction(title: "Ok", style: .default) { [weak self, weak ac] _ in
-            guard let newName = ac?.textFields?[0].text else { return }
-            person.name = newName
-            self?.collectionView.reloadData()
+            self!.present(deleteAlert, animated: true)
         })
 
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        // Create "Rename" button and present to user, perform action if user selects
+        ac.addAction(UIAlertAction(title: "Rename", style: .default) { [weak self, weak ac] _ in
+            let renameAlert = UIAlertController(title: "Rename", message: nil, preferredStyle: .alert)
+
+            renameAlert.addTextField()
+
+            renameAlert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+
+            renameAlert.addAction(UIAlertAction(title: "Rename", style: .default) { [weak self, weak renameAlert] _ in
+                //print("Rename function entered")
+                guard let newName = renameAlert?.textFields?[0].text else { return }
+                person.name = newName
+                self?.collectionView.reloadData()
+            })
+
+
+
+            self!.present(renameAlert, animated: true)
+        })
 
         present(ac, animated: true)
+    }
 
+    @objc func renamePerson() {
+        //        let renameAlert = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .alert)
+        //
+        //        renameAlert.addTextField()
+        //
+        //        renameAlert.addAction(UIAlertAction(title: "Ok", style: .default) { [weak self, weak ac] _ in
+        //            guard let newName = ac?.textFields?[0].text else { return }
+        //            person.name = newName
+        //            self?.collectionView.reloadData()
+        //        })
+        //
+        //        renameAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        //
+        //        present(renameAlert, animated: true)
+        print("You have selected to rename.")
     }
 
 }
