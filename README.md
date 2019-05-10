@@ -43,7 +43,7 @@ Key Topics:
 
 Key Topics:  
 
-## Project 10: NameToFaces [In Progress]  
+## Project 10: NameToFaces :white_check_mark:  
 
 Key Topics:  
 
