@@ -49,7 +49,7 @@ Key Topics:
 
 ## Project 11: Pachinko [In Progress]  
 
-Key Topics: SpriteKit, SKSpriteNode, SKPhysicsBody  
+Key Topics: SpriteKit, SKSpriteNode, SKPhysicsBody, SKAction, SKPhysicsContactDelegate, SKLabelNode  
 
 
 
