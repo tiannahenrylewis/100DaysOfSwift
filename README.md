@@ -49,7 +49,7 @@ Key Topics:
 
 ## Project 11: Pachinko :white_check_mark:  
 
-Key Topics: SpriteKit, SKSpriteNode, SKPhysicsBody, SKAction, SKPhysicsContactDelegate, SKLabelNode  
+Key Topics: SpriteKit, SKSpriteNode, SKPhysicsBody, SKAction, SKPhysicsContactDelegate, SKLabelNode, SKEmitterNode  
 
 ## Project 12: UserDefaults [In Progress]  
 
