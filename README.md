@@ -47,9 +47,11 @@ Key Topics:
 
 Key Topics:  
 
-## Project 11: Pachinko [In Progress]  
+## Project 11: Pachinko :white_check_mark:  
 
 Key Topics: SpriteKit, SKSpriteNode, SKPhysicsBody, SKAction, SKPhysicsContactDelegate, SKLabelNode  
 
+## Project 12: UserDefaults [In Progress]  
 
+Key Topics: UserDefaults, NSCoding
 
