@@ -12,11 +12,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var scoreLabel: SKLabelNode!
     var editLabel: SKLabelNode!
+    var ballCountLabel: SKLabelNode!
+    var boxCountLabel: SKLabelNode!
 
     var boxes =  [SKNode]()
     var ballColours = ["ballBlue", "ballCyan", "ballGreen", "ballGrey", "ballPurple", "ballRed", "ballPurple" ]
 
-    var ballsUsed = 0
+    var ballsAvailable = 5 {
+        didSet {
+            ballCountLabel.text = "\(ballsUsed) / \(ballsAvailable)"
+        }
+    }
+    var ballsUsed = 0 {
+        didSet {
+            ballCountLabel.text = "\(ballsUsed) / \(ballsAvailable)"
+        }
+    }
+    var boxesToPlace = 10 {
+        didSet {
+
+        }
+    }
+    var boxesPlaced = 0 {
+        didSet {
+
+        }
+    }
+
 
     var score = 0 {
         didSet {
@@ -24,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 
-    var editingMode: Bool = false {
+    var editingMode: Bool = true {
         didSet {
             if editingMode {
                 editLabel.text = "Done"
@@ -51,6 +73,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         editLabel.text = "Edit"
         editLabel.position = CGPoint(x: 80, y: 700)
         addChild(editLabel)
+
+        ballCountLabel = SKLabelNode(fontNamed: "Chalkduster")
+        ballCountLabel.text = "\(ballsUsed) / \(ballsAvailable)"
+        ballCountLabel.horizontalAlignmentMode = .center
+        ballCountLabel.position = CGPoint(x: 512, y: 700)
+        addChild(ballCountLabel)
 
         makeSlot(at: CGPoint(x: 128, y: 0), isGood: true)
         makeSlot(at: CGPoint(x: 384, y: 0), isGood: false)
@@ -91,15 +119,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             } else {
                 ballsUsed += 1
                 //create a ball
-                let randomNumber = Int.random(in: 0...6)
-                let ball = SKSpriteNode(imageNamed: ballColours[randomNumber])
-                ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
-                ball.physicsBody?.restitution = 0.4
-                ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
-                //ball.position = location
-                ball.position = CGPoint(x: location.x, y: 680)
-                ball.name = "ball"
-                addChild(ball)
+                if ballsUsed <= ballsAvailable {
+                    let randomNumber = Int.random(in: 0...6)
+                    let ball = SKSpriteNode(imageNamed: ballColours[randomNumber])
+                    ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
+                    ball.physicsBody?.restitution = 0.4
+                    ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
+                    //ball.position = location
+                    ball.position = CGPoint(x: location.x, y: 680)
+                    ball.name = "ball"
+                    addChild(ball)
+                } else {
+                    let ac = UIAlertController(title: "Game Over", message: "You have run out of balls.", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Restart", style: .default))
+                    //present(ac, animated: true)
+                    self.view?.window?.rootViewController?.present(ac, animated: true, completion: nil)
+
+                    resetGame()
+                }
             }
         }
     }
@@ -120,6 +157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             slotBase = SKSpriteNode(imageNamed: "slotBaseGood")
             slotGlow = SKSpriteNode(imageNamed: "slotGlowGood")
             slotBase.name = "good"
+            ballsAvailable += 1
         } else {
             slotBase = SKSpriteNode(imageNamed: "slotBaseBad")
             slotGlow = SKSpriteNode(imageNamed: "slotGlowBad")
@@ -172,7 +210,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 
-    func resetGame() {
+    @objc func resetGame() {
+        //reset the number of available balls to five
+        ballsAvailable = 5
+
         //reset the number of balls used to 0
         ballsUsed = 0
 
