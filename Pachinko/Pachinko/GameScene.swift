@@ -185,12 +185,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
                 resetGame()
             }
+
         }
-
-
-
-
-
     }
 
     func makeBouncer(at position: CGPoint) {
@@ -253,6 +249,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if box.name == "box" {
             //destory box object
             destoryBox(box: box)
+            boxesPlaced -= 1
         }
     }
 
@@ -307,6 +304,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         //reset score to 0
         score = 0
+    }
+
+    //Not currently being implemented.
+    func checkObstacles() {
+        if boxesPlaced == 0 {
+            let ac = UIAlertController(title: "You Won", message: "You cleared the obstacles before running out of balls.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Play Again", style: .default))
+            self.view?.window?.rootViewController?.present(ac, animated: true, completion: nil)
+
+            resetGame()
+        }
     }
 
 }
