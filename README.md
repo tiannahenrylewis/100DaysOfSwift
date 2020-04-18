@@ -1,6 +1,6 @@
 # 100 Days of Swift
 
-## Project 1: Storm Viewer :white_check_mark:  
+## [Project 1: Storm Viewer](https://github.com/tiannahenrylewis/100DaysOfSwift/tree/master/StormViewer) :white_check_mark:  
 Simple app that uses a table view to list 10 images, if a user selects one of the images from the table view they are shown a detail view that simply displays the image. The user can navigate between the table view and the detail view for each of the 10 images.
 
 Key Topics: ViewControllers, Storyboards, Interface Builder, FileManager class, UIImageView, UINavigationBar,...
